@@ -1,0 +1,26 @@
+<?php
+if (isset($_POST['submit'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $conn = mysqli_connect('localhost', 'database_username', 'database_password', 'database_name');
+
+  $sql = "SELECT * FROM doctors WHERE email = '$email' AND password = '$password'";
+  $result = mysqli_query($conn, $sql);
+
+  
+?>
+
+<form action="" method="post">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+  </div>
+  <div>
+    <input type="submit" name="submit" value="Submit">
+  </div>
+</form>
